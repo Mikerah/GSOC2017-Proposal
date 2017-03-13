@@ -24,7 +24,22 @@
        github page by creating a wiki for new developers. Next, I will create support pages for the search engine to help the usage of Ahmia. Afterwords, I will
        develop an algorithm for blacklisting child abuse websites by search for sites that link to these types of websites. In order to make Ahmia more user friendly,
        I will be developing advanced search options, similar to the way Google's advanced search options work. My optional goals for the summer are to develop ways to anonymously
-       collect user data and improving the current statistics page.</p>
+       collect user data, improving the current statistics page and ways to gather anonymous feedback directly from users.
+   </p>
+   
+   <p>The blacklisting algorithm will take advantage of the fact that linking to child abuse websites is a grey area, in other words, it is not illegal.The algorithm will acquire
+      links to websites that link to child abuse websites, and ban the the links to the child abuse websites.
+      
+      Since search for particular websites due to the way Tor websites work, I think that having advanced search options will make it easier to browse websites on the Tor network.
+      I propose the following search options:
+      <ul>
+        <li>The use of double quotes("") to search for a particular string and it is case sensitive. Example: "Politics" search term should only present websites that have a header/description with the word Politics</li>
+        <li>The use of the operator OR between search terms. Exmaple: term1 OR term2 should only present websites that contain either term1 or term2 or both term1 and term2 (like a logical OR)</li>
+        <li>The use of the oprator AND between search terms. Example: term1 AND term2 should only present websites that contain both term1 and term2.</li>
+        <li>The use of a dash(-) to before a search term. Example: -term1 should only present websites that don't contain term1.</li>
+      </ul>
+      As we get more user feedback, more search options will be added.
+   </p>
     
     <h2>Tasks</h2>
     <ul>
@@ -188,10 +203,13 @@
     <h2>After GSoC 2017</h2>
     <p>
     My project will require maintenance and in order to keep up with the tactics that websites with inappropriate content come up with, I will need to stay up to speed with how to improve the algorithm for backlisting. As for the wiki and support pages, I will update accordingly whenever I get feedback about them.
-    I will also continue working on how we can anonymously gather data and report these numbers in a an approachable way.
+    I will also continue working on how we can anonymously gather data and report these numbers in a an approachable way. I am also considering becoming a mentor for GSoC 2018 if the Tor Project gets accepted again to participate.
     </p>
     <h2>Comments</h2>
-   <p>I strongly believe that a user firendly search engine on the Tor network would encourage more people to use Tor. So, I would like to contribute to projects make Tor more accessible to the lay person. Moreover, I believe that mentorship is very important and that GSoC is a great initiative to bringing more people like to work on open source projects.</p>
+   <p>
+    I would like to thank Juha Nurmi for helping with this application and for helping develop my ideas in accordance with the Ahmia Search Engine's goals.
+    I strongly believe that a user firendly search engine on the Tor network would encourage more people to use Tor. So, I would like to contribute to projects make Tor more accessible to the lay person. Moreover, I believe that mentorship is very important and that GSoC is a great initiative to bringing more people like to work on open source projects.
+   </p>
 </body>
 
 </html>
