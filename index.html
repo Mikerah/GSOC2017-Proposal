@@ -15,41 +15,66 @@
         <h3>IRC: kiki101</h3>
         <h3>Email: mikerah14@gmail.com</h3>
         <h3>Github: <a href="https://github.com/Mikerah">Mikerah</a></h3>
-        <h3>Time Zone: Eastern Standard Time</h3>
+        <h3>Time Zone: Eastern Standard Time (UTC is 4 hours ahead)</h3>
     </div>
     
     <h2>Abstract</h1>
-    <p>For GSoC, I plan to work on automating backlisting and adding more documentation to the Ahmia project's web pages. 
-       First, I will work my way through the codebase to learn how the search engine works. After this, I will add documentation to the project's
-       github page by creating a wiki for new developers. Next, I will create support pages for the search engine to help the usage of Ahmia. Afterwords, I will
-       develop an algorithm for blacklisting child abuse websites by search for sites that link to these types of websites. In order to make Ahmia more user friendly,
-       I will be developing advanced search options, similar to the way Google's advanced search options work. My optional goals for the summer are to develop ways to anonymously
-       collect user data, improving the current statistics page and ways to gather anonymous feedback directly from users.
-   </p>
-   
-   <p>The blacklisting algorithm will take advantage of the fact that linking to child abuse websites is a grey area, in other words, it is not illegal.The algorithm will acquire
-      links to websites that link to child abuse websites, and ban the the links to the child abuse websites.
-      
-      Since search for particular websites due to the way Tor websites work, I think that having advanced search options will make it easier to browse websites on the Tor network.
-      I propose the following search options:
-      <ul>
-        <li>The use of double quotes("") to search for a particular string and it is case sensitive. Example: "Politics" search term should only present websites that have a header/description with the word Politics</li>
-        <li>The use of the operator OR between search terms. Exmaple: term1 OR term2 should only present websites that contain either term1 or term2 or both term1 and term2 (like a logical OR)</li>
-        <li>The use of the oprator AND between search terms. Example: term1 AND term2 should only present websites that contain both term1 and term2.</li>
-        <li>The use of a dash(-) to before a search term. Example: -term1 should only present websites that don't contain term1.</li>
-      </ul>
-      As we get more user feedback, more search options will be added.
+    <p>Search engines are a gateway to the Internet. 
+       It enables users to easily navigate the Internet for what they want and take advantage of what the Internet has to offer. Without them, the Internet would
+       still be a place for universities, businesses and the government. Since the early 2010s, the Tor network is getting more attention in the mainstream world.
+       With this new found attention, there will be a lot of new users that will want to see the network for themselves. The Ahmia project gives these users
+       a way to get around the Tor network that is familiar to them. The Ahmia search engine indexes Tor hidden services and makes them searchable.</p>
+    <p>
+       For GSoC, I plan to work on automating backlisting, adding advance search options, making changes to the crawler and adding more documentation to Ahmia's web pages. 
+       First, I will work my way through the codebase to learn how the search engine works. During this time, I will also start writing a wiki page and extra documentation for developers.
+       Then, I will change the Ahmia crawler so that is connects directly to Tor's SOCKS and phase out the use of polipo, since it is no longer maintained.Then, I will be implementing
+       an algorithm that automates blacklisting child abuse websites.Afterwards, I will be adding a form for administrators/owners of hidden services so that they can add their websites to the search engine.
+       Next, I will be adding advanced search options to make searching for hidden services easier. 
    </p>
     
     <h2>Tasks</h2>
     <ul>
         <li>Review the Ahmia Project's code base</li>
+        <ul>
+            <li>This will help me familiarize myself with the inner workings of the search engine.</li>
+        </ul>
+        <li>Replace polipo with a solution that connects directly to Tor's SOCKS</li>
+        <ul>
+            <li>Use the socksipy module to connect the crawler directly to Tor's SOCKS</li>
+        </ul>
         <li>Implement blacklisting algorithm</li>
+        <p>The algorithm takes advantage of the fact that a lof of hidden services link to child abuse websites.</p>
+        <ul>
+            <li>Fetch a list of hidden wikis</li>
+            <li>With the list of hidden wikis, fetcha list of child abuse websites</li>
+            <li>Ban these child abuse websites from search engine results and compute their MD5 sum.</li>
+            <li>Make this list of MD5 sums public for others to remove abusive material from their websites.</li>
+        </ul>
+        <li>Add and HTML form for the addition of hidden services to the search engine</li>
+        <ul>
+            <li>Add an HTML form for new hidden services</li>
+            <li>Have the crawler index the new hidden services.</li>
+        </ul>
         <li>Add advanced search options</li>
-        <li>Write a guide for new developers in the Ahmia project's wiki</li>
-        <li>Add more documentation to aid more experience developers</li>
-        <li>Add/Improve statistics page (Optional)</li>
-        <li>Develop ways to anonymously collect user data (Optional)</li>
+        <p>These are the initial search options that will be added to the search engine. All these options can be used in combination with one another.</p>
+        <ul>
+            <li>Double quotes: "". Returns pages that contain exactly "term". It is case sensitive.</li>
+            <p>Example: The search term "Tor Project" should return all pages containing the string Tor Project.</p>
+            <li>Hyphen: -. Returns pages that don't contain -term.</li>
+            <p>Example: The search term -hidden should return all pages that don't contain the word hidden.</p>
+            <li>AND operator. Works like a logical AND gate i.e. it returns all the pages that contain both "term1" and "term2". There will be no limit on the number of search terms.</li>
+            <p>Example: The search term spam AND eggs should return pages that contain both spam and eggs.</p>
+            <li>OR opertator. Works like a logical OR gate i.e it returns all the pages that contain 1) "term1", 2) "term"2 or 3) "term1" and "term2".Likewise, there is no limit on the number of search terms.</li>
+            <p>Example:The search term spam OR eggs should return pages that contain both spam and eggs or either spam or eggs.</p>
+        </ul>
+        <li>Create support pages for the advanced search options</li>
+        <ul>
+            <li>Create a support page that explains the usage of all the advanced search options and a form for suggestions/feedback.</li>
+        </ul>
+        <li>Create a wiki for the Ahmia Project</li>
+        <ul>
+            <li>Create a wiki on Github that will include how to get started with Ahmia and other page that will guide developers so they can start contributing to Ahmia.</li>
+        </ul>
     </ul>
     <h2>Timeline</h2>
     <table class="table">
@@ -62,10 +87,9 @@
             <td>
                 <ul>
                     <li>Review Ahmia's code base</li>
-                    <li>Write a rough draft of the wiki for new developers</li>
-                    <li>Write a rough draft of the general documentation for experienced developers</li>
-                    <li>Implement a proof of concept for identifying and blacklisting child abuse websites</li>
-                    <li>Do testing on PoC to determine areas of improvement</li>
+                    <li>Write a rough draft of the wiki</li>
+                    <li>Start replacing Polipo</li>
+                    
                 </ul>
             </td>
         </tr>
@@ -73,9 +97,9 @@
             <td>May 28 - June 11</td>
             <td>
                 <ul>
-                    <li>Implement a proof of concept for the advanced search options</li>
-                    <li>Do testing on PoC to determine easy to remember/understand search options</li>
-                    <li>Write an inital draft for the corresponding support pages</li>
+                    <li>Implement a proof of concept for identifying and blacklisting child abuse websites</li>
+                    <li>Do testing on PoC to determine areas of improvement</li>
+                    <li>Implement a form for new hidden services and have the crawler index these new sites.</li>
                 </ul>
             </td>
         </tr>
@@ -83,7 +107,7 @@
             <td>June 12 - June 18</td>
             <td>
                 <ul>
-                    <li>Integrate algorithms for blacklisting and advanced search options into production code</li>
+                    <li>Integrate blacklisting algorithm and form to the production code and official website.</li>
                 </ul>
             </td>
         </tr>
@@ -99,7 +123,8 @@
             <td>June 27 - July 17</td>
             <td>
                 <ul>
-                    <li>Finish final copies of wiki and documentation started in the community bonding period</li>
+                    <li>Start implementing advanced search options and the corresponding support pages.</li>
+                    <li>Integrate them into official website.</li>
                 </ul>
             </td>
         </tr>
@@ -115,7 +140,7 @@
             <td>July 25 - August 8</td>
             <td>
                 <ul>
-                    <li>Start working on the statistics pages</li>
+                    <li>Complete wiki pages started during the Community Bonding period</li>
                 </ul>
             </td>
         </tr>
@@ -123,8 +148,7 @@
             <td>August 9 - August 20</td>
             <td>
                 <ul>
-                    <li>Code Refactoring</li>
-                    <li>Fixing bugs</li>
+                    <li>I will be taking this time to catch up and improve the quality of my code.</li>
                 </ul>
             </td>
         </tr>
@@ -140,38 +164,26 @@
     <h2>Deliverables</h2>
     <h4>Mid term Evaluation</h4>
     <ul>
+        <li>Replacement of Polipo is completed.</li>
         <li>Completed implementation of blacklisting algorithm</li>
-        <li>Completed implementation of advanced search options</li>
-        <li>Completed support pages for advanced search options</li>
+        <li>Completed implementation for the addition of new hidden services</li>
     </ul>
     <h4>Final term Evaluation</h4>
     <ul>
         <li>Completed wiki for the Ahmia github page</li>
-        <li>Completed documentation for the Ahmia github page</li>
-        <li>Complete documentation for code</li>
-        <li>Complete a statistics page</li>
+        <li>Completed implementation of advanced search options</li>
+        <li>Added more documentation</li>
     </ul>
     <h2>Risks</h2>
     <p>As we all know, a lot of the times our plans don't always work out. So these are the potential bottlenecks that I may encounter during GSoC</p>
     <ul>
-        <li>Automating Backlisting is taking me a lot of time to implement correctly</li>
+        <li>A task is taking a lot more time than anticipated</li>
         <section>
             <h3>Steps to alleviate the situation</h3>
             <ul>
                 <li>Consult Juha Nurmi</li>
-                <li>Read research papers on search engines and the tor network</li>
-                <li>Send an e-mail to the mailing list for some help and the way I approached the problem</li>
-                <li>Add more time to this task</li>
-            </ul>
-        </section>
-        <li>The seach options are taking me a lot of time to implement correctly</li>
-        <section>
-            <h3>Steps to alleviate the situation</h3>
-            <ul>
-                <li>Consult Juha Nurmi</li>
-                <li>Do more research on Tor websites and the content they contain</li>
-                <li>Post to the mailing list my difficulty and discuss potential solutions from a different point of view</li>
-                <li>Dedicate more time to the task</li>
+                <li>Post my problems to the mailing list along with what I did to resolve the situation</li>
+                <li>Dedicate more time to this task</li>
             </ul>
         </section>
         <li>Potentially developing "bad" code</li>
@@ -179,7 +191,7 @@
             <h3>Steps to alleviate the situation</h3>
             <ul>
                 <li>Consult Juha</li>
-                <li>Take time out of other tasks to dedicate to refactoring and documentation</li>
+                <li>Add more time during the weekend to improve the quality of my code.</li>
                 <li>After GSoC, spend time improving the quality of the code</li>
             </ul>
         </section>
@@ -188,11 +200,11 @@
     <h2>Code Samples</h2>
     <p>I have written a few web applications with Django that can be seen on my github page.</p>
     <ul>
-        <li><a href="https://github.com/Mikerah/1Chan">1chan</a>:My attempt at building a textboard forum. It is currently in progress but it is a better representation of my skills building Django based web applications</li>
+        <li><a href="https://github.com/Mikerah/1Chan">1chan</a>:My attempt at building a textboard forum. It is currently in progress but it is a better representation of my skills building Django based web applications. With this project, I am also learning PostgreSQL which is what is used for the Ahmia search engine.</li>
         <li><a href="https://github.com/Mikerah/FakeDataGenerator">FakeDataGenerator</a>: A web app that generates random and fake datasets. I believe that this is also a better representation of my knowledge of Django.</li>
         <li><a href="https://github.com/Mikerah/WorldOfYoutube-WebApp">WorldOfYoutube</a>: A web app that let's users find popular youtube videos in countries around the world. This was my first Django based web application.</li>
     </ul>
-    <h2>Why Tor?</h2>
+    <h2>Motivation</h2>
     <p>
     Since my elementary school days, I have had a strong interest in all things technology. 
     This includes security and artificial intelligence. In the 6th grade, I wanted to become a hacker.
@@ -204,27 +216,39 @@
     and developed a deeper interest in security. I realized that I was taking for granted how open and 
     free the Internet is and why need organizations like the Tor project and EFF to defend what makes the 
     Internet probably the most important human achievement in recent history.
+    
+    Another motivation is to learn more about open source software development and start contributing to it. I personally use a lot of free software and have the skills to contribute.
+    However, I haven't contributed anything to any of the products I use. So, I am taking this opportunity to give back to a project that has improved my life for the better.
+    
+    I also would love to learn more about hidden services, how they work and how to create my own. I find the ideas and technology behind Tor fascinating and would like to learn more about it.
+    
+    Lastly, I have a lot of experience programming in Python and I have a year of experience with Django. Hence, I believe that I will be able to contribute immensely to the project during the summer months.
     </p>
     <h2>Experiences with free software development</h2>
     <p> I have not contributed to free solftware developement before. However, I have tried to start such a project called 
-        <a href="https://github.com/Mikerah/WikiSummary">WikiSummary</a>. My lack of experience in developping FOSS is the main reason why I decided to apply to Google Summer of Code.
+        <a href="https://github.com/Mikerah/WikiSummary">WikiSummary</a>. Also, while building the Ahmia development environment, I submitted 2 pull requests to the Ahmia-Crawler and Ahmia-Index.
     </p>
     <h2>Availability</h2>
     <p>
-    During the summer, I plan to take evening courses for my degree and I will have a once a week part time job on the weekend. Other than this, I will be able to work on GSOC.
+    Since I plan on taking evening courses, I have started a bit early by going through the codebase, submitting some pull requests for small issues and talking to Juha Nurmi.
+    During the summer, I plan to take evening courses for my degree and I will have a once a week part time job on the weekend. Other than this, I will be able to work on GSOC full-time.
     The way summer courses work at my university is that there is 2 semesters: the first from May to June and the second from July to August. The exam period for the first semester is from June 26 to 30 and for the second is from August 15 to 18. The exact dates of my exams have not been posted yet. When I get them, I will inform my mentor.
 
     </p>
+    <h2>Keeping in touch throughout the summer</h2>
+    <p>In order to let everyone know about my progress, I will be posting weekly to the mailing list and will be using Github to keep track of commits. If there are any questions, I will be available on IRC and you can send me e-mails.</p>
     <h2>GSoC Experience and Other applications</h2>
     <p>I do not have any previous GSoC experiences. I am also not applying to any other organizations.</p>
     <h2>After GSoC 2017</h2>
     <p>
     My project will require maintenance and in order to keep up with the tactics that websites with inappropriate content come up with, I will need to stay up to speed with how to improve the algorithm for backlisting. As for the wiki and support pages, I will update accordingly whenever I get feedback about them.
-    I will also continue working on how we can anonymously gather data and report these numbers in a an approachable way. I am also considering becoming a mentor for GSoC 2018 if the Tor Project gets accepted again to participate.
+    As we gather more user feedback, we can determine the most useful and easiest advanced search options to integrate into Ahmia.I will also continue working on how we can anonymously gather data and report these numbers in a an approachable way. 
+    I am also considering becoming a mentor for GSoC 2018.
     </p>
     <h2>Comments</h2>
    <p>
-    I would like to thank Juha Nurmi for helping with this application and for helping develop my ideas in accordance with the Ahmia Search Engine's goals.
+    I would like to thank Juha Nurmi for helping with this application and for helping develop my ideas in accordance with the Ahmia Search Engine's goals. He's also been very helpful in helping me set up the development environment for working with Ahmia. I look forward to working with him throughout the summer.
+    I would also like to thank everyone on the #tor-dev and #tor channels on IRC for helping develop my ideas, answering my questions and making me more knowledgeable about Tor and its challenges.
     I strongly believe that a user firendly search engine on the Tor network would encourage more people to use Tor. So, I would like to contribute to projects make Tor more accessible to the lay person. Moreover, I believe that mentorship is very important and that GSoC is a great initiative to bringing more people like to work on open source projects.
    </p>
 </body>
