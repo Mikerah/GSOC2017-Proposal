@@ -29,7 +29,8 @@
        First, I will work my way through the codebase to learn how the search engine works. During this time, I will also start writing a wiki page and extra documentation for developers.
        Then, I will change the Ahmia crawler so that is connects directly to Tor's SOCKS and phase out the use of polipo, since it is no longer maintained.Then, I will be implementing
        an algorithm that automates blacklisting child abuse websites.Afterwards, I will be adding a form for administrators/owners of hidden services so that they can add their websites to the search engine.
-       Next, I will be adding advanced search options to make searching for hidden services easier. 
+       Next, I will be adding advanced search options to make searching for hidden services easier. Optional goals for the summer include implementing some of the things last year's Ahmia mentee, Ismael Riahi,
+       suggested in <a href="https://zma0.dreamwidth.org/306.html">this</a> blog post such as indexing by language and improving the speed of the crawler by ignoring unchanged content.
    </p>
     
     <h2>Tasks</h2>
@@ -74,6 +75,17 @@
         <li>Create a wiki for the Ahmia Project</li>
         <ul>
             <li>Create a wiki on Github that will include how to get started with Ahmia and other page that will guide developers so they can start contributing to Ahmia.</li>
+        </ul>
+    </ul>
+    <h2>Optional Tasks</h2>
+    <ul>
+        <li>Indexing by language</li>
+        <ul>
+            <li>Detect language during crawling using Google's language detection library</li>
+        </ul>
+        <li>Improving crawler speed</li>
+        <ul>
+            <li>Use the 'If-Modified-Since' HTTP header during crawling</li>
         </ul>
     </ul>
     <h2>Timeline</h2>
@@ -190,6 +202,7 @@
         <section>
             <h5>Steps to alleviate the situation</h5>
             <ul>
+                <li>Use the tools implemented by Ismael Riahi, last year's GSoC participant</li>
                 <li>Consult Juha</li>
                 <li>Add more time during the weekend to improve the quality of my code.</li>
                 <li>After GSoC, spend time improving the quality of the code</li>
@@ -247,8 +260,8 @@
     </p>
     <h2>Comments</h2>
    <p>
-    I would like to thank Juha Nurmi for helping with this application and for helping develop my ideas in accordance with the Ahmia Search Engine's goals. He's also been very helpful in helping me set up the development environment for working with Ahmia. I look forward to working with him throughout the summer.
-    I would also like to thank everyone on the #tor-dev and #tor channels on IRC for helping develop my ideas, answering my questions and making me more knowledgeable about Tor and its challenges.
+    I would like to thank Juha Nurmi for helping with this application and for helping develop my ideas in accordance with the Ahmia Search Engine's goals. He's also been very helpful in helping me set up the development environment for working with Ahmia. I look forward to working with him throughout the summer. Thanks also to Ismael Riahi, who worked on the Ahmia search engine during GSoC last year,
+    for giving me some advice and ideas for GSoC for this year. I would also like to thank everyone on the #tor-dev and #tor channels on IRC for helping develop my ideas, answering my questions and making me more knowledgeable about Tor and its challenges.
     I strongly believe that a user firendly search engine on the Tor network would encourage more people to use Tor. So, I would like to contribute to projects make Tor more accessible to the lay person. Moreover, I believe that mentorship is very important and that GSoC is a great initiative to bringing more people like me to work on open source projects.
    </p>
 </body>
