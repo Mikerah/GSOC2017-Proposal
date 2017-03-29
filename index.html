@@ -3,7 +3,7 @@
 <html>
 
 <head>
-  <title>Mikerah's GSOC 2017 Tor Proposal</title>
+  <title>Mikerah's GSoC 2017 Tor Proposal</title>
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 
@@ -28,7 +28,7 @@
        For GSoC, I plan to work on automating backlisting, adding advance search options, making changes to the crawler and adding more documentation to Ahmia's web pages. 
        First, I will work my way through the codebase to learn how the search engine works. During this time, I will also start writing a wiki page and extra documentation for developers.
        Then, I will change the Ahmia crawler so that is connects directly to Tor's SOCKS and phase out the use of polipo, since it is no longer maintained.Then, I will be implementing
-       an algorithm that automates blacklisting child abuse websites.Afterwards, I will be adding a form for administrators/owners of hidden services so that they can add their websites to the search engine.
+       an algorithm that automates blacklisting child abuse websites.Afterwards, I will be adding a form for owners of hidden services so that they can add their websites to the search engine.
        Next, I will be adding advanced search options to make searching for hidden services easier. Optional goals for the summer include implementing some of the things last year's Ahmia mentee, Ismael Riahi,
        suggested in <a href="https://zma0.dreamwidth.org/306.html">this</a> blog post such as indexing by language and improving the speed of the crawler by ignoring unchanged content.
    </p>
@@ -38,6 +38,16 @@
         <li>Review the Ahmia Project's code base</li>
         <ul>
             <li>This will help me familiarize myself with the inner workings of the search engine.</li>
+        </ul>
+        <li>Upgrade all outdated requirements, in order to ensure the website is secure.</li>
+        <ul>
+            <li>Use requires.io to see which requirements need to be upgraded</li>
+            <li>After upgrading the specific requirements, go through the code to fix any deprecated functions or broken code.</li>
+        </ul>
+        <li>Remove and update any broken links on the Ahmia website</li>
+        <ul>
+            <li>Check all the links on Ahmia's main website.</li>
+            <li>Before removing any pages, consult with Juha Nurmi.</li>
         </ul>
         <li>Replace polipo with a solution that connects directly to Tor's SOCKS</li>
         <ul>
@@ -101,6 +111,9 @@
                     <li>Review Ahmia's code base</li>
                     <li>Write a rough draft of the wiki</li>
                     <li>Start replacing Polipo</li>
+                    <li>Upgrade outdated requirements</li>
+                    <li>Fix broken links on the main website</li>
+                    <li>Fix bugs</li>
                     
                 </ul>
             </td>
@@ -243,10 +256,11 @@
     </p>
     <h2>Availability</h2>
     <p>
-    Since I plan on taking evening courses, I have started a bit early by going through the codebase, submitting some pull requests for small issues and talking to Juha Nurmi.
-    During the summer, I plan to take evening courses for my degree and I will have a once a week part time job on the weekend. Other than this, I will be able to work on GSOC full-time.
+    Since I plan on taking evening courses, I have started a bit early by going through the codebase, submitting some pull requests for small issues, written an initial draft of the wiki and talking to Juha Nurmi.
+    During the summer, I plan to take evening courses for my degree and I will have a once a week part time job on the weekend. Other than this, I will be able to work on GSoC full-time.
     The way summer courses work at my university is that there is 2 semesters: the first from May to June and the second from July to August. The exam period for the first semester is from June 26 to 30 and for the second is from August 15 to 18. The exact dates of my exams have not been posted yet. When I get them, I will inform my mentor.
-
+    For the first semester, I will have lectures on Mondays and Wednesdays from 6 pm to 9 pm. For the second semester, I will have lectures from Monday to Thursday from 6 pm to 9 pm. 
+    If any extra time is need, I will use the weekends to catch. I have also dedicated a part of my time during GSoC for catching up.
     </p>
     <h2>Keeping in touch throughout the summer</h2>
     <p>In order to let everyone know about my progress, I will be posting weekly to the mailing list and will be using Github to keep track of commits. If there are any questions, I will be available on IRC and you can send me e-mails.</p>
